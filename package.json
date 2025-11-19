@@ -1,37 +1,18 @@
 {
   "name": "ase-util",
-  "version": "1.0.3",
-  "description": "Utility library to handle Adobe Swatch Exchange (ASE) files",
-  "main": "lib/index.js",
-  "bin": {
-    "asedump": "./bin/asedump",
-    "ase2clr": "./bin/ase2clr"
-  },
-  "devDependencies": {
-    "eslint": "^6.3.0",
-    "istanbul": "^0.4.5",
-    "mocha": "^6.2.0"
-  },
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "lint": "eslint bin/* test/**.js lib/**.js",
-    "test": "mocha",
-    "test:watch": "mocha -w",
-    "test:coverage": "istanbul cover _mocha"
+    "asedump": "node index.js",
+    "test": "mocha"
   },
-  "keywords": [
-    "ase",
-    "colors",
-    "decode"
-  ],
-  "author": "Diego Fernandez <diegof79@gmail.com> (https://github.com/dfernandez79)",
-  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "mocha": "^11.7.5"
+  },
   "dependencies": {
-    "iconv-lite": "^0.5.0",
-    "lodash": "^4.17.15",
-    "yargs": "^14.0.0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/dfernandez79/ase-util.git"
+    "iconv-lite": "^0.7.0",
+    "lodash": "^4.17.21"
   }
 }
