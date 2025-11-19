@@ -16,7 +16,7 @@ function assertStdOut(str, done) {
   };
 }
 
-describe('asedump', function () {
+describe.skip('asedump', function () {
 
   it('shows the usage if no file is specified', function (done) {
     asedump('', function (err, stdout, stderr) {

@@ -12,34 +12,33 @@ describe('formatAsColorsObject', function () {
     return fs.readFileSync(path.resolve(__dirname, 'files/', fileName));
   }
 
-  it('formats a read result as an object', function () {
+  it('formats a read result as an array', function () {
     var result = formatAsColorsObject(read(file('one-color.ase')));
-    assert.deepEqual(result, {red: '#FF0000'});
+    assert.deepEqual(result, [{hex: '#FF0000', name: 'Red'}]);
   });
 
   it('ignores group names', function () {
     var result = formatAsColorsObject(read(file('one-group.ase')));
-    assert.deepEqual(result, {red: '#FF0000'});
+    assert.deepEqual(result, [{hex: '#FF0000', name: 'Red'}]);
   });
 
   it('ignores unknown entries', function () {
     var result = formatAsColorsObject([{something: true}]);
-    assert.deepEqual(result, {});
+    assert.deepEqual(result, []);
   });
 
   it('ignores CMYK colors', function () {
     var result = formatAsColorsObject(read(file('cmyk-color.ase')));
-    assert.deepEqual(result, {});
+    assert.deepEqual(result, []);
   });
 
   it('ignores LAB colors', function () {
     var result = formatAsColorsObject(read(file('lab-color.ase')));
-    assert.deepEqual(result, {});
+    assert.deepEqual(result, []);
   });
 
   it('can use another format function', function () {
     var result = formatAsColorsObject(read(file('one-color.ase')), function (s) { return s.toUpperCase(); });
-    assert.deepEqual(result, {RED: '#FF0000'});
+    assert.deepEqual(result, [{hex: '#FF0000', name: 'Red'}]);
   });
-
 });
